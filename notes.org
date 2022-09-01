@@ -1,0 +1,36 @@
+# NOTE: We can use these individual tasks using the 'namespace:rake_task' syntax:
+#+begin_src ruby
+rake greeting:hello
+rake greeting:hola
+#+end_src
+
+# NOTE: If you encounter this error:
+#+begin_src bash
+rake aborted!
+Gem::LoadError: You have already activated rake 10.4.2,
+but your Gemfile requires rake 10.4.0.
+Prepending `bundle exec` to your command may solve this.
+#+end_src
+
+# Then, use this command as the fix:
+#+begin_src bash
+bundle exec rake greeting:hello
+#+end_src
+
+# NOTE: We will now use the 'rake db:migrate' command to create a database table and migrate the code using
+# a 'rake' task:
+#+begin_src bash
+samuelbanya@Samuels-MBP ~/hub/Development/code/phase-3/phase-3-active-record-intro-to-rake $ bundle exec rake db:migrate
+#+end_src
+
+I then ran this command to seed the database with existing data:
+#+begin_src bash
+bundle exec rake db:seed
+#+end_src
+
+I then ran this command to drop into the console's breakpoint:
+#+begin_src bash
+bundle exec rake db:migrate
+bundle exec rake db:seed
+bundle exec rake console
+#+end_src
